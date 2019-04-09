@@ -15,7 +15,7 @@ class buildWeapon(viz.EventClass):
 		m = viz.Matrix()
 		m.postScale(.05,.05,.05)
 		m.postAxisAngle(0,0,1,270)
-		m.postTrans(.1,2,.30)
+		m.postTrans(.1,1.5,.30)
 		self.pistol.setMatrix(m)
 		
 		self.x = 0
@@ -43,10 +43,30 @@ class buildWeapon(viz.EventClass):
 		self.z = z
 		m = viz.Matrix()
 		m.postTrans(self.x,self.y,self.z)
-		self.bullet.setMatrix(m)
+		self.pistol.setMatrix(m)
 
 	def setTheta(self, theta):
 		self.theta = theta
+		
+	def setScale(self,amount):
+		m = viz.Matrix()
+		m.postScale(amount,amount,amount)
+		self.pistol.setMatrix(m)
+		
+	def rotateOnX(self,theta):
+		m = viz.Matrix()
+		m.postAxisAngle(1,0,0,theta)
+		self.pistol.setMatrix(m)
+		
+	def rotateOnY(self,theta):
+		m = viz.Matrix()
+		m.postAxisAngle(0,1,0,theta)
+		self.pistol.setMatrix(m)
+		
+	def rotateOnZ(self,theta):
+		m = viz.Matrix()
+		m.postAxisAngle(0,0,1,theta)
+		self.pistol.setMatrix(m)
 		
 	def onKeyDown(self, key): 
 		if key == " ":
