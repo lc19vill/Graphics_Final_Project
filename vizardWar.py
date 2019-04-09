@@ -67,14 +67,8 @@ class vizardWarTerrain(viz.EventClass):
 		m.postAxisAngle(0, 1, 0, 70)
 		m.postTrans(46, 0, 50)
 		self.smallShack7.setMatrix(m)
-		
-#		self.gun = viz.add('models//colt3//model.dae')
-#		m = viz.Matrix()
-#		m.postScale(.05,.05,.05)
-#		m.postAxisAngle(0,0,1,270)
-#		m.postTrans(.1,2,.30)
-#		self.gun.setMatrix(m)
 
+		#Builds the weapon and this comes preloaded with a couple of actions
 		self.gun = buildWeapon()
 		
 		self.avatar = viz.add('vcc_female.cfg')
@@ -191,13 +185,6 @@ class vizardWarTerrain(viz.EventClass):
 			m.postAxisAngle(0,2,0,self.theta)
 			m.postTrans(self.x+dx,.8,self.z+dz)
 			view.setMatrix(m)
-			
-			m = viz.Matrix()
-			m.postScale(.05,.05,.05)
-			m.postAxisAngle(0,0,1,270)
-			m.postTrans(self.x+dx+.15,2,self.z+dz+.25)
-			self.gun.setMatrix(m)
-			
 			self.firstPerson = True
 			
 		if self.firstPerson:
@@ -208,11 +195,6 @@ class vizardWarTerrain(viz.EventClass):
 			m.postTrans(0, 2, 0)
 			view.setMatrix(m)
 			m = viz.Matrix()
-			m.postScale(.05,.05,.05)
-			m.postAxisAngle(0,0,1,270)
-			m.postAxisAngle(0,1,0,self.theta)
-			m.postTrans(self.x + .15, 2, self.z + .18)
-			self.gun.setMatrix(m)
 			
 		else:
 			m = viz.Matrix()
@@ -220,11 +202,6 @@ class vizardWarTerrain(viz.EventClass):
 			m.postTrans(self.x,0,self.z);
 			self.avatar.setMatrix(m)
 			m = viz.Matrix()
-			m.postScale(.05,.05,.05)
-			m.postAxisAngle(0,0,1,270)
-			m.postAxisAngle(0,1,0,self.theta)
-			m.postTrans(self.x + .1, 2, self.z + .18)
-			self.gun.setMatrix(m)
 			
 	def setLocation(self,x,y,z):
 		m = viz.Matrix()
