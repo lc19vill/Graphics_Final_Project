@@ -3,6 +3,7 @@ import viz
 import vizshape
 import vizcam
 import math
+from weapon import *
 
 
 #create each individual class
@@ -67,12 +68,14 @@ class vizardWarTerrain(viz.EventClass):
 		m.postTrans(46, 0, 50)
 		self.smallShack7.setMatrix(m)
 		
-		self.gun = viz.add('models//colt3//model.dae')
-		m = viz.Matrix()
-		m.postScale(.05,.05,.05)
-		m.postAxisAngle(0,0,1,270)
-		m.postTrans(.1,2,.30)
-		self.gun.setMatrix(m)
+#		self.gun = viz.add('models//colt3//model.dae')
+#		m = viz.Matrix()
+#		m.postScale(.05,.05,.05)
+#		m.postAxisAngle(0,0,1,270)
+#		m.postTrans(.1,2,.30)
+#		self.gun.setMatrix(m)
+
+		self.gun = buildWeapon()
 		
 		self.avatar = viz.add('vcc_female.cfg')
 		
@@ -233,6 +236,3 @@ class vizardWarTerrain(viz.EventClass):
 			m = viz.Matrix()
 			m.postTrans(self.x, self.y + .1, self.z)
 			self.avatar.setMatrix(m)
-			
-		
-	
